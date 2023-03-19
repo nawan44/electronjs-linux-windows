@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-winstaller": "^5.1.0"
+  }
+}

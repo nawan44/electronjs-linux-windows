@@ -1,0 +1,44 @@
+======== Windows Build Package ========
+
+electron-packager "./my-new-app" --platform=win32 --arch=x64 myApplicationBuilt --electron-version 1.0.0
+
+======== Change Package ========
+
+> > > Resource > app > package.json
+> > > "name": "electron_tutorial_app",
+
+node build.js
+
+======== DEBUG =============
+DEBUG=electron-windows-installer:main node build.js
+
+
+
+======== Linux Build Package ========
+
+================REMOVE LINUX================
+sudo apt-get remove electron-tutorial-app
+
+================install fakeroot dpkg================
+brew install fakeroot dpkg
+
+electron-packager "./my-new-app" --overwrite --asar=true --platform=linux --arch=x64 myApplicationLinux --prune=true --out=myApplicationLinux
+
+<!-- ???????????????BRWEEE -->
+
+If you need to have dpkg first in your PATH, run:
+echo 'export PATH="/home/linuxbrew/.linuxbrew/opt/dpkg/bin:$PATH"' >> /home/rahmatemtres/.bash_profile
+
+For compilers to find dpkg you may need to set:
+export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/dpkg/lib"
+
+For pkg-config to find dpkg you may need to set:
+export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/dpkg/lib/pkgconfig"
+
+-----------------INSTALL HOMEBREW---------------------
+sudo apt install build-essential
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+sudo apt-get install build-essential
+brew install gcc
